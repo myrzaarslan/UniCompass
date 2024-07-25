@@ -1,0 +1,13 @@
+.text-center {
+  text-align: center;
+}
+.custom-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.spinner-border {
+  margin: 20px auto;
+}
+.modal-title {
+  cursor: pointer;
+}

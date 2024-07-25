@@ -1,0 +1,108 @@
+{% extends "unicompass_app/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-4 custom-container text-center">
+    <h1 class="text-center">University Rankings</h1>
+
+    <br></br>
+
+    <div class="text-center">
+        <button class="btn btn-dark" onclick="switchSource('topuniversities')">QS</button>
+        <button class="btn btn-dark" onclick="switchSource('timeshighereducation')">THE</button>
+    </div>
+
+    <br></br>
+
+    <!-- TopUniversities Modal -->
+    <div class="modal fade" id="modal-topuniversities" tabindex="-1" role="dialog" aria-labelledby="modalLabelTopUniversities" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="modalLabelTopUniversities">TopUniversities Subjects</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-unstyled">
+                        <h6 class="modal-title text-center" data-subject="qs-general" onclick="displayEntries(this)">General</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-engineering-technologies" onclick="displayEntries(this)">Engineering & Technologies</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-arts-humanities" onclick="displayEntries(this)">Arts & Humanities</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-life-sciences-medicine" onclick="displayEntries(this)">Life Sciences & Medicine</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-natural-sciences" onclick="displayEntries(this)">Natural Sciences</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-social-sciences-management" onclick="displayEntries(this)">Social Sciences & Management</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-linguistics" onclick="displayEntries(this)">Linguistics</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-music" onclick="displayEntries(this)">Music</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-theology-divinity-religious" onclick="displayEntries(this)">Theology, Divinity & Religious Studies</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-archaeology" onclick="displayEntries(this)">Archaeology</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-architecture-built-environment" onclick="displayEntries(this)">Architecture & Built Environment</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-art-design" onclick="displayEntries(this)">Art & Design</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-classics-ancient-history" onclick="displayEntries(this)">Classics & Ancient History</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-english-language-literature" onclick="displayEntries(this)">English Language and Literature</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-history" onclick="displayEntries(this)">History</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-history-of-art" onclick="displayEntries(this)">History of Art</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-modern-languages" onclick="displayEntries(this)">Modern Languages</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-performing-arts" onclick="displayEntries(this)">Performing Arts</h6>
+                        <h6 class="modal-title text-center" data-subject="qs-philosophy" onclick="displayEntries(this)">Philosophy</h6>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TimesHigherEducation Modal -->
+    <div class="modal fade" id="modal-timeshighereducation" tabindex="-1" role="dialog" aria-labelledby="modalLabelTimesHigherEducation" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="modalLabelTimesHigherEducation">TimesHigherEducation Subjects</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="modal-title text-center" data-subject="the-general" onclick="displayEntries(this)">General</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="alertPlace">
+        <div id="chosenFilter" class="alert alert-dark alert-dismissible fade show text-center" role="alert">
+            <span id="alertContent"></span> <!-- Where the alert content will be updated -->
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    
+    <table id="unisTable" class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Rank</th>
+                <th scope="col">Name</th>
+                <th scope="col">Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <div id="loadingSpinner" class="spinner-border text-secondary" role="status" style="display: none;">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul id="pagination" class="pagination justify-content-center"></ul>
+    </nav>
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'unicompass_app\main.js' %}"></script>
+{% endblock %}

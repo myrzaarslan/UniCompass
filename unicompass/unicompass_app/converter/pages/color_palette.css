@@ -1,0 +1,40 @@
+.color-palette .rectangle-1 {
+  background: #2F81D0;
+  position: absolute;
+  left: 162px;
+  bottom: 45px;
+  width: 100px;
+  height: 100px;
+}
+.color-palette .rectangle-2 {
+  background: #2F30D0;
+  position: absolute;
+  left: 50%;
+  bottom: 45px;
+  translate: -50% 0;
+  width: 100px;
+  height: 100px;
+}
+.color-palette .rectangle-3 {
+  background: #2FD0CF;
+  position: absolute;
+  right: 163px;
+  bottom: 45px;
+  width: 100px;
+  height: 100px;
+}
+.color-palette .color-palette {
+  position: relative;
+  overflow-wrap: break-word;
+  font-family: 'Jomhuria';
+  font-weight: 400;
+  font-size: 200px;
+  color: #000000;
+}
+.color-palette-1 {
+  background: #FFFFFF;
+  display: flex;
+  padding: 0 63.5px 106px 37px;
+  width: 725px;
+  box-sizing: border-box;
+}
